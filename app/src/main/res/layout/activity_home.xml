@@ -7,10 +7,19 @@
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="547dp"
-        android:textSize="35sp"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="312dp" />
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Events Available" />
+
+    <ListView
+        android:id="@+id/locationListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/locationTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp" />
 </RelativeLayout>
