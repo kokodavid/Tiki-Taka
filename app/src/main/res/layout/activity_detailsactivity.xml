@@ -7,17 +7,23 @@
     tools:context=".detailsactivity">
 
 
-
-
     <TextView
+        android:id="@+id/txtitem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtitem"
-        android:textSize="30dp"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:textColor="@color/black"
         android:hint="Item Value"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BUY TICKET"
+        android:id="@+id/findRestaurantsButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>
