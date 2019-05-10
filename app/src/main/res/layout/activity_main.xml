@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <TextView
@@ -19,11 +19,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:layout_width="184dp"
-        android:layout_height="171dp"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="137dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
+        android:src="@drawable/koko"
+        />
 </RelativeLayout>
