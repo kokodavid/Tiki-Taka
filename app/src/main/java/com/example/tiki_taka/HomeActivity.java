@@ -14,8 +14,10 @@ import butterknife.BindView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView mLocationTextView;
-    private ListView mListView;
+
+
+    @BindView(R.id.locationListView) ListView mListView;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
 
 
     private String[] events = new String[]{
@@ -27,8 +29,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mListView = (ListView) findViewById(R.id.locationListView);
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, events);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
