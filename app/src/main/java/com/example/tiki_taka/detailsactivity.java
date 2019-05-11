@@ -8,15 +8,14 @@ import butterknife.BindView;
 
 public class detailsactivity extends AppCompatActivity {
 
-
-    @BindView(R.id.txtitem) TextView textView;
+TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailsactivity);
 
-
+textView = (TextView)findViewById(R.id.txtitem);
 
         String Tempholder = getIntent().getStringExtra("Listviewclickvalue");
 
