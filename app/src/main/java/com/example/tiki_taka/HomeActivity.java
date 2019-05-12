@@ -1,6 +1,7 @@
 package com.example.tiki_taka;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.locationTextView) TextView mLocationTextView;
     private ListView mListView;
+    private TextView mAppNameTextView;
 
 
     private String[] events = new String[] {
@@ -30,6 +32,11 @@ public class HomeActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.locationListView);
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,events);
         mListView.setAdapter(adapter);
+
+        mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
+        Typeface Windsong = Typeface.createFromAsset(getAssets(),"fonts/Windsong.ttf");
+        mAppNameTextView.setTypeface(Windsong);
+
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

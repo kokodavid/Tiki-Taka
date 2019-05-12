@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".detailsactivity">
 
 
@@ -12,11 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Item Value"
-        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
         android:textSize="30dp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BUY TICKET"
         android:id="@+id/findRestaurantsButton"
@@ -25,5 +28,24 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:background="@color/colorPrimary"
+        android:layout_above="@+id/findRestaurantsButton"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:hint="Enter The Event name before buying a ticket"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/download" />
+
 
 </RelativeLayout>
