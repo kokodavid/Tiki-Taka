@@ -21,3 +21,6 @@ The app uses the following technologies
       <li>TEL:0662321841</li>
       <li>EMAIL:kokodavid78@gmail.com</li>
   </ul>
+
+## SUPPORT
+For help concerning the application contact the developer through the above provided email and telephone number.
