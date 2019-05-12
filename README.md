@@ -24,3 +24,7 @@ The app uses the following technologies
 
 ## SUPPORT
 For help concerning the application contact the developer through the above provided email and telephone number.
+
+
+## KNOWN BUGS
+The app has no know bugs
