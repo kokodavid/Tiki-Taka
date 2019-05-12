@@ -23,6 +23,13 @@
         android:textColor="@color/colorAccent"
         android:textSize="30dp" />
 
+    <ImageView android:id="@+id/imageView1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/dete" />
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
