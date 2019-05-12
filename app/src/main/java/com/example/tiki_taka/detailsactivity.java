@@ -23,7 +23,6 @@ public class detailsactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailsactivity);
 
-
         mLocationEditText = (EditText) findViewById(R.id.locationEditText);
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);
 
