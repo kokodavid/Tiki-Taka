@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textColor="#EF009F"
     tools:context=".HomeActivity">
 
 
     <ImageView
-        android:background="@drawable/poli"
+        android:background="@drawable/kik"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -17,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="45sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#1D3935"
         android:text="Events Available this Month" />
 
     <ListView
