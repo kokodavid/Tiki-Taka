@@ -1,5 +1,6 @@
 package com.example.tiki_taka;
 
+import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -20,6 +21,9 @@ public class EventBriteService {
                     .url(url)
                     .header("Authorization", Constants.EventBriteToken)
                     .build();
+
+            Call call = client.newCall(request);
+            call.enqueue(callback);
 
         }
 
