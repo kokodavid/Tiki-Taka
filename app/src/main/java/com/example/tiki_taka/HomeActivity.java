@@ -27,6 +27,7 @@ import okhttp3.Response;
 public class HomeActivity extends AppCompatActivity {
 
     public static final String TAG = HomeActivity.class.getSimpleName();
+    public ArrayList<Event> mEvents = new ArrayList<>();
 
     private ListView mListView;
     private TextView mAppNameTextView;
@@ -39,6 +40,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         getEvents();
+
+
 
         mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
         Typeface Windsong = Typeface.createFromAsset(getAssets(),"fonts/Windsong.ttf");
@@ -62,6 +65,8 @@ public class HomeActivity extends AppCompatActivity {
                 try {
                     String jsonData = response.body().string();
                     Log.v(TAG, jsonData);
+                    mEvents = EventBriteService.processResults(response);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
