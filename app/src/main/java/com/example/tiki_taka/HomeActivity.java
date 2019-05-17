@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,35 +14,31 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.graphics.Color;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static final String TAG = HomeActivity.class.getSimpleName();
 
     private ListView mListView;
     private TextView mAppNameTextView;
     private TextView mLocationTextView;
-
-    private String[] events = new String[] {
-            "Na Iwake", "Color Splash","kingKong pool Party", "Imax Avengers End Game", "Jameson party",
-            "Mother's Day","Mad run","Nairobi Sunset Gt","Nairobi Tech Week","Matter heart run","The Forest hike","Etana Live in Kenya"
-    };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mListView = (ListView) findViewById(R.id.locationListView);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,events);
-        mListView.setAdapter(adapter);
-
-
+        getEvents();
 
         mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
         Typeface Windsong = Typeface.createFromAsset(getAssets(),"fonts/Windsong.ttf");
@@ -49,18 +46,28 @@ public class HomeActivity extends AppCompatActivity {
 
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String Templistview = events[position].toString();
-                Intent intent = new Intent(HomeActivity.this, detailsactivity.class);
-                intent.putExtra("Listviewclickvalue", Templistview);
-                startActivity(intent);
-            }
-        });
 
 
         }
+    private void getEvents() {
+        final EventBriteService EventBriteService = new EventBriteService();
+        EventBriteService.findEvents( new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    Log.v(TAG, jsonData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+    }
 
     }
