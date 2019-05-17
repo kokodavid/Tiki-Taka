@@ -42,37 +42,44 @@ public class HomeActivity extends AppCompatActivity {
         getEvents();
 
 
-
         mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
-        Typeface Windsong = Typeface.createFromAsset(getAssets(),"fonts/Windsong.ttf");
+        Typeface Windsong = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
         mAppNameTextView.setTypeface(Windsong);
 
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);
 
 
+    }
 
-        }
     private void getEvents() {
         final EventBriteService EventBriteService = new EventBriteService();
-        EventBriteService.findEvents( new Callback() {
+        EventBriteService.findEvents(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                    mEvents = EventBriteService.processResults(response);
+            public void onResponse(Call call, Response response) {
+                mEvents = EventBriteService.processResults(response);
+                HomeActivity.this.runOnUiThread(new Runnable() {
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                    @Override
+                    public void run() {
+                        String[] eventsNames = new String[mEvents.size()];
+                        for (int i = 0; i < eventsNames.length; i++) {
+                            eventsNames[i] = mEvents.get(i).getName();
+                        }
+                        ArrayAdapter adapter = new ArrayAdapter(HomeActivity.this,
+                                android.R.layout.simple_list_item_1, eventsNames);
+                        mListView.setAdapter(adapter);
+
+                    }
+
+                });
             }
 
         });
     }
+}
 
-    }

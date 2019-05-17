@@ -39,14 +39,14 @@ public class EventBriteService {
         try {
             String jsonData = response.body().string();
             JSONObject eventbriteJSON = new JSONObject(jsonData);
-            JSONArray eventJSON = eventbriteJSON.getJSONArray("events");
+            JSONArray eventJSONa = eventbriteJSON.getJSONArray("events");
             if (response.isSuccessful()){
-                for (int i = 0; i < eventJSON.length(); i++){
-                    JSONObject eventsJSON = eventJSON.getJSONObject(i);
-                    String name = eventsJSON.getString("name");
-                    String description = eventsJSON.getString("description");
-                    String start = eventsJSON.getString("start");
-                    String end = eventsJSON.getString("end");
+                for (int i = 0; i < eventJSONa.length(); i++){
+                    JSONObject eventsJSON = eventJSONa.getJSONObject(i);
+                    String name = eventsJSON.getJSONObject("name").getString("text");
+                    String description = eventsJSON.getJSONObject("description").getString("text");
+                    String start = eventsJSON.getJSONObject("end").getString("local");
+                    String end = eventsJSON.getJSONObject("end").getString("local");
                     ArrayList<String> address = new ArrayList<>();
                     JSONArray addressJSON = eventsJSON.getJSONObject("location").getJSONArray("display_address");
                     for (int y = 0; y < addressJSON.length(); y++){
