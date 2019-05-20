@@ -1,37 +1,33 @@
 package com.example.tiki_taka;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
-import android.graphics.Color;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static final String TAG = HomeActivity.class.getSimpleName();
-    public ArrayList<Event> mEvents = new ArrayList<>();
+    private ArrayList<Event> mEvents = new ArrayList<>();
 
-    private ListView mListView;
+    private EventListAdapter mAdapter;
+
+    //@BindView(R.id.recycler) RecyclerView mRecyclerView;
+    RecyclerView mRecyclerView;
+
     private TextView mAppNameTextView;
-    private TextView mLocationTextView;
+
+    public static final String TAG = HomeActivity.class.getSimpleName();
 
 
     @Override
@@ -39,14 +35,16 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getEvents();
 
+        ButterKnife.bind(this);
+
+        mRecyclerView = findViewById(R.id.recycler);
 
         mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
         Typeface Windsong = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
         mAppNameTextView.setTypeface(Windsong);
 
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+        getEvents();
 
 
     }
@@ -64,22 +62,23 @@ public class HomeActivity extends AppCompatActivity {
                 mEvents = EventBriteService.processResults(response);
                 HomeActivity.this.runOnUiThread(new Runnable() {
 
+
                     @Override
-                    public void run() {
-                        String[] eventsNames = new String[mEvents.size()];
-                        for (int i = 0; i < eventsNames.length; i++) {
-                            eventsNames[i] = mEvents.get(i).getName();
-                        }
-                        ArrayAdapter adapter = new ArrayAdapter(HomeActivity.this,
-                                android.R.layout.simple_list_item_1, eventsNames);
-                        mListView.setAdapter(adapter);
-
+                    public void run () {
+                        mAdapter = new EventListAdapter(getApplicationContext(), mEvents);
+                       mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =  new LinearLayoutManager(HomeActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
-
                 });
             }
 
         });
     }
 }
+
+
+
+
 

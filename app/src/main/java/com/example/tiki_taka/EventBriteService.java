@@ -16,23 +16,23 @@ import okhttp3.Response;
 
 public class EventBriteService {
 
-        public static void findEvents( Callback callback) {
-            /*the okhttp client sends the request*/
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .build();
+    public static void findEvents( Callback callback) {
+        /*the okhttp client sends the request*/
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
 
-            HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.EVENTBRITEBASE_URL).newBuilder();
-            String url = urlBuilder.build().toString();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.EVENTBRITEBASE_URL).newBuilder();
+        String url = urlBuilder.build().toString();
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .header("Authorization", Constants.EventBriteToken)
-                    .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .header("Authorization", Constants.EventBriteToken)
+                .build();
 
-            Call call = client.newCall(request);
-            call.enqueue(callback);
+        Call call = client.newCall(request);
+        call.enqueue(callback);
 
-        }
+    }
 
     public ArrayList<Event> processResults(Response response){
         ArrayList<Event> event = new ArrayList<>();
@@ -45,15 +45,12 @@ public class EventBriteService {
                     JSONObject eventsJSON = eventJSONa.getJSONObject(i);
                     String name = eventsJSON.getJSONObject("name").getString("text");
                     String description = eventsJSON.getJSONObject("description").getString("text");
-                    String start = eventsJSON.getJSONObject("end").getString("local");
+                    String start = eventsJSON.getJSONObject("start").getString("local");
                     String end = eventsJSON.getJSONObject("end").getString("local");
                     ArrayList<String> address = new ArrayList<>();
-                    JSONArray addressJSON = eventsJSON.getJSONObject("location").getJSONArray("display_address");
-                    for (int y = 0; y < addressJSON.length(); y++){
-                        address.add(addressJSON.get(y).toString());
-                    }
+
                     Event events = new Event(name, description, start, end
-                            );
+                    );
                     event.add(events);
                 }
             }

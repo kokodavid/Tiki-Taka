@@ -11,6 +11,8 @@ public class Event {
         this.mDescription = Description;
         this.mStart = Start;
         this.mEnd = End;
+
+
     }
     public String getName() {
         return mName;
@@ -24,7 +26,5 @@ public class Event {
         return  mStart;
     }
 
-    public String getEnd() {
-        return mEnd;
-    }
+    public String getEnd() {  return mEnd;  }
 }
