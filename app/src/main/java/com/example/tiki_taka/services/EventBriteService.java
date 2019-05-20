@@ -1,4 +1,7 @@
-package com.example.tiki_taka;
+package com.example.tiki_taka.services;
+
+import com.example.tiki_taka.ui.Constants;
+import com.example.tiki_taka.ui.Event;
 
 import org.json.JSONArray;
 import org.json.JSONException;

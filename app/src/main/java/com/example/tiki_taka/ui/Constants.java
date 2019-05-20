@@ -1,4 +1,6 @@
-package com.example.tiki_taka;
+package com.example.tiki_taka.ui;
+
+import com.example.tiki_taka.BuildConfig;
 
 public class Constants {
     public static final String EventBriteToken = BuildConfig.EventBriteToken;

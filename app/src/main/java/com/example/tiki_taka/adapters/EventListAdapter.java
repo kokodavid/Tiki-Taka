@@ -1,4 +1,4 @@
-package com.example.tiki_taka;
+package com.example.tiki_taka.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.example.tiki_taka.R;
+import com.example.tiki_taka.ui.Event;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.tiki_taka;
+package com.example.tiki_taka.ui;
 
 public class Event {
     private String Name;

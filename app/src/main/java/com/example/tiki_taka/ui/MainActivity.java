@@ -1,9 +1,11 @@
-package com.example.tiki_taka;
+package com.example.tiki_taka.ui;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.tiki_taka.R;
 
 public class MainActivity extends AppCompatActivity {
 
