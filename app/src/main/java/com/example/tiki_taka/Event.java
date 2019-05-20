@@ -1,30 +1,57 @@
 package com.example.tiki_taka;
 
 public class Event {
-    private String mName;
-    private String mDescription;
-    private String mStart;
-    private String mEnd;
+    private String Name;
+    private String Description;
+    private String Start;
+    private String End;
+    private String url;
 
-    public Event(String Name,String Description,String Start,String End){
-        this.mName = Name;
-        this.mDescription = Description;
-        this.mStart = Start;
-        this.mEnd = End;
-
-
+    public Event(String name, String description, String start, String end, String url) {
+        Name = name;
+        Description = description;
+        Start = start;
+        End = end;
+        this.url = url;
     }
+
     public String getName() {
-        return mName;
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 
     public String getDescription() {
-        return mDescription;
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
     }
 
     public String getStart() {
-        return  mStart;
+        return Start;
     }
 
-    public String getEnd() {  return mEnd;  }
+    public void setStart(String start) {
+        Start = start;
+    }
+
+    public String getEnd() {
+        return End;
+    }
+
+    public void setEnd(String end) {
+        End = end;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

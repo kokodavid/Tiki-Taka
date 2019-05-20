@@ -47,9 +47,12 @@ public class EventBriteService {
                     String description = eventsJSON.getJSONObject("description").getString("text");
                     String start = eventsJSON.getJSONObject("start").getString("local");
                     String end = eventsJSON.getJSONObject("end").getString("local");
+
+                    String url = "https://via.placeholder.com/150";
+
                     ArrayList<String> address = new ArrayList<>();
 
-                    Event events = new Event(name, description, start, end
+                    Event events = new Event(name, description, start, end,url
                     );
                     event.add(events);
                 }

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -44,6 +45,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     }
 
     public  class EventViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.eventImageView)ImageView eventImageView;
         @BindView(R.id.eventNameTextView) TextView mNameView;
         @BindView(R.id.eventDescriptionTextView) TextView mDescriptionView;
         @BindView(R.id.eventDateTextView) TextView mDateView;
@@ -64,6 +66,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             mDescriptionView.setText(events.getDescription());
             mDateView.setText(events.getStart());
             mDate2View.setText(events.getEnd());
+
 
 
 

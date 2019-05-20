@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -65,10 +66,10 @@ public class HomeActivity extends AppCompatActivity {
 
                     @Override
                     public void run () {
-                        mAdapter = new EventListAdapter(getApplicationContext(), mEvents);
+                        mAdapter = new EventListAdapter(getApplicationContext(), mEvents); 
                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager =  new LinearLayoutManager(HomeActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
+                        StaggeredGridLayoutManager gridLayoutManager =     new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL);
+                        mRecyclerView.setLayoutManager(gridLayoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
                 });
