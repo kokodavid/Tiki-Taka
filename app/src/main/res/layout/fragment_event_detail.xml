@@ -13,9 +13,9 @@
         <ImageView
             android:id="@+id/eventImageView"
             android:layout_width="match_parent"
-            android:layout_height="153dp"
+            android:layout_height="195dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/kjl" />
+            android:src="@drawable/jkoi" />
 
         <RelativeLayout
             android:layout_width="match_parent"

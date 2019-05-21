@@ -15,8 +15,7 @@
             android:theme="@style/NoActionBarTheme"></activity>
         <activity android:name=".ui.EventDetailActivity" />
         <activity
-            android:name=".ui.FirstActivity"
-            android:theme="@style/NoActionBarTheme" />
+            android:name=".ui.FirstActivity" />
         <activity
             android:name=".ui.LoginActivity"
             android:theme="@style/NoActionBarTheme" />

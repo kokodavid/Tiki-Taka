@@ -42,7 +42,7 @@ public class EventBriteService {
         try {
             String jsonData = response.body().string();
             JSONObject eventbriteJSON = new JSONObject(jsonData);
-            JSONArray eventJSONa = eventbriteJSON.getJSONArray("event");
+            JSONArray eventJSONa = eventbriteJSON.getJSONArray("events");
             if (response.isSuccessful()){
                 for (int i = 0; i < eventJSONa.length(); i++){
                     JSONObject eventsJSON = eventJSONa.getJSONObject(i);
