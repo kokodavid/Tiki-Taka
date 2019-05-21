@@ -26,7 +26,7 @@
         android:textSize="15sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/hapakenya"
         android:layout_width="136dp"
         android:layout_height="71dp"
         android:layout_alignParentStart="true"
@@ -43,7 +43,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/eventbrite"
         android:layout_width="180dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
@@ -55,7 +55,7 @@
         app:srcCompat="@drawable/hko" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/hype"
         android:layout_width="132dp"
         android:layout_height="109dp"
         android:layout_alignParentStart="true"
@@ -83,7 +83,7 @@
         android:textSize="30sp" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/mosound"
         android:layout_width="131dp"
         android:layout_height="141dp"
         android:layout_alignParentEnd="true"
@@ -95,7 +95,7 @@
         app:srcCompat="@drawable/mos" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/nrg"
         android:layout_width="146dp"
         android:layout_height="130dp"
         android:layout_alignParentStart="true"
@@ -111,7 +111,7 @@
         app:srcCompat="@drawable/nrg" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/hbr"
         android:layout_width="134dp"
         android:layout_height="131dp"
         android:layout_alignParentEnd="true"
