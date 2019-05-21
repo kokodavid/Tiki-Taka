@@ -1,11 +1,16 @@
 package com.example.tiki_taka.ui;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Event {
     private String Name;
     private String Description;
     private String Start;
     private String End;
     private String url;
+
+    public Event() {}
 
     public Event(String name, String description, String start, String end, String url) {
         Name = name;

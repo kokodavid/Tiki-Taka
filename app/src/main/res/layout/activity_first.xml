@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/av" />
+        android:background="@drawable/plo" />
 
     <Button
         android:id="@+id/SearchEvent"

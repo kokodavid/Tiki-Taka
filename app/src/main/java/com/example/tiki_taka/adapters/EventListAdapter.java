@@ -1,6 +1,7 @@
 package com.example.tiki_taka.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import com.example.tiki_taka.R;
 import com.example.tiki_taka.ui.Event;
+import com.example.tiki_taka.ui.EventDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -45,7 +49,9 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         return mEvents.size();
     }
 
-    public  class EventViewHolder extends RecyclerView.ViewHolder {
+    public  class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+
+
         @BindView(R.id.eventImageView)ImageView eventImageView;
         @BindView(R.id.eventNameTextView) TextView mNameView;
         @BindView(R.id.eventDescriptionTextView) TextView mDescriptionView;
@@ -60,6 +66,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindEvents(Event events) {
@@ -68,9 +75,15 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             mDateView.setText(events.getStart());
             mDate2View.setText(events.getEnd());
 
+        }
 
-
-
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, EventDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("events", Parcels.wrap(mEvents));
+            mContext.startActivity(intent);
         }
 
 

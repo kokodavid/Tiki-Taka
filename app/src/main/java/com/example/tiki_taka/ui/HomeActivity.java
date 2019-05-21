@@ -1,6 +1,7 @@
 package com.example.tiki_taka.ui;
 
 import android.graphics.Typeface;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +10,15 @@ import android.widget.TextView;
 
 import com.example.tiki_taka.adapters.EventListAdapter;
 import com.example.tiki_taka.R;
+import com.example.tiki_taka.adapters.EventPagerAdapter;
 import com.example.tiki_taka.services.EventBriteService;
+
+import org.parceler.Parcels;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -25,12 +30,21 @@ public class HomeActivity extends AppCompatActivity {
 
     private EventListAdapter mAdapter;
 
-    //@BindView(R.id.recycler) RecyclerView mRecyclerView;
+
     RecyclerView mRecyclerView;
 
     private TextView mAppNameTextView;
 
     public static final String TAG = HomeActivity.class.getSimpleName();
+
+
+     private ViewPager mViewPager;
+    private EventPagerAdapter adapterViewPager;
+    ArrayList<Event> mEvent = new ArrayList<>();
+
+
+
+
 
 
     @Override
@@ -42,10 +56,18 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mRecyclerView = findViewById(R.id.recycler);
-
         mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
-        Typeface Windsong = Typeface.createFromAsset(getAssets(), "fonts/Windsong.ttf");
-        mAppNameTextView.setTypeface(Windsong);
+        Typeface Windsong = Typeface.createFromAsset(getAssets(), "fonts/Amatic-Bold.ttf");
+        /*mAppNameTextView.setTypeface(Windsong);*/
+
+   /*    mEvent = Parcels.unwrap(getIntent().getParcelableExtra("events"));
+        int startingPosition = getIntent().getIntExtra("position", 0);
+
+        mViewPager = findViewById(R.id.viewPager);
+        adapterViewPager = new EventPagerAdapter(getSupportFragmentManager(), mEvent);
+        mViewPager.setAdapter(adapterViewPager);
+        mViewPager.setCurrentItem(startingPosition);*/
+
 
         getEvents();
 
@@ -69,7 +91,9 @@ public class HomeActivity extends AppCompatActivity {
                     @Override
                     public void run () {
                         mAdapter = new EventListAdapter(getApplicationContext(), mEvents); 
+
                        mRecyclerView.setAdapter(mAdapter);
+
                         StaggeredGridLayoutManager gridLayoutManager =     new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL);
                         mRecyclerView.setLayoutManager(gridLayoutManager);
                         mRecyclerView.setHasFixedSize(true);
