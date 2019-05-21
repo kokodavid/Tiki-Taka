@@ -20,6 +20,14 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     private TextView textView4;
     private ImageView eventbrite;
     private ImageView hype;
+    private ImageView hbr;
+    private ImageView mosound;
+    private ImageView nrg;
+    private ImageView hapakenya;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +43,20 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
 
         hype = findViewById(R.id.hype);
         hype.setOnClickListener(this);
+
+        hbr = findViewById(R.id.hbr);
+        hbr.setOnClickListener(this);
+
+        mosound = findViewById(R.id.mosound);
+        mosound.setOnClickListener(this);
+
+        nrg = findViewById(R.id.nrg);
+        nrg.setOnClickListener(this);
+
+        hapakenya = findViewById(R.id.hapakenya);
+        hapakenya.setOnClickListener(this);
+
+
 
         mSearchEventButton = (Button) findViewById(R.id.SearchEvent);
         mSearchEventButton.setOnClickListener(this);
@@ -59,6 +81,30 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         if (v == hype) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://twitter.com/hype_xp?lang=en"));
+            startActivity(webIntent);
+        }
+
+        if (v == hbr) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://hbr.co.ke/test/category/events/"));
+            startActivity(webIntent);
+        }
+
+        if (v == mosound) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.mosound.co.ke/home/"));
+            startActivity(webIntent);
+        }
+
+        if (v == nrg) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://nrg.radio/events-archive/"));
+            startActivity(webIntent);
+        }
+
+        if (v == hapakenya) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://hapakenya.com/events/"));
             startActivity(webIntent);
         }
     }
