@@ -7,22 +7,22 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#433BA9">
 
         <ImageView
             android:id="@+id/eventImageView"
             android:layout_width="match_parent"
-            android:layout_height="199dp"
+            android:layout_height="153dp"
             android:scaleType="centerCrop"
             android:src="@drawable/kjl" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="485dp"
             android:background="@android:color/white"
-            android:paddingTop="20dp"
             android:paddingLeft="10dp"
+            android:paddingTop="20dp"
             android:paddingRight="10dp"
             android:paddingBottom="20dp">
 
@@ -45,7 +45,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="7dp"
                 android:layout_marginLeft="7dp"
-                android:layout_marginTop="86dp"
+                android:layout_marginTop="44dp"
                 android:text="Description"
                 android:textStyle="italic" />
 
@@ -54,7 +54,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/eventNameTextView"
-                android:layout_marginBottom="-49dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginBottom="-357dp"
                 android:text="Start Date"
                 android:textStyle="italic" />
 
@@ -64,8 +68,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="325dp"
-                android:layout_marginLeft="325dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="38dp"
+                android:layout_marginLeft="38dp"
+                android:layout_marginBottom="69dp"
                 android:text="End Date"
                 android:textStyle="italic" />
 
@@ -75,17 +81,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+       <!--     <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/saveEventButton"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="-36dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="71dp"
+                android:layout_marginBottom="-71dp"
                 android:orientation="vertical"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
@@ -132,13 +138,13 @@
 
             </LinearLayout>
 
-            <Button
+       -->     <Button
+                android:id="@+id/saveEventButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buy Ticket"
-                android:id="@+id/saveEventButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
+                android:text="Buy Ticket"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
         </RelativeLayout>

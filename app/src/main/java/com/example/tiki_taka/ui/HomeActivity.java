@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.widget.TextView;
@@ -94,8 +95,8 @@ public class HomeActivity extends AppCompatActivity {
 
                        mRecyclerView.setAdapter(mAdapter);
 
-                        StaggeredGridLayoutManager gridLayoutManager =     new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL);
-                        mRecyclerView.setLayoutManager(gridLayoutManager);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HomeActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
                 });
