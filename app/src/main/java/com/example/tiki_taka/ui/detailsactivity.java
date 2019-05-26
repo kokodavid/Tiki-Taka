@@ -9,36 +9,40 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.tiki_taka.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class detailsactivity extends AppCompatActivity {
+public class detailsactivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView mLocationTextView;
-    private Button mBuyTicketButton;
+    private Button mCreate;
     private EditText mLocationEditText;
-            TextView textView;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference mEventsDatabaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailsactivity);
 
-        mLocationEditText = (EditText) findViewById(R.id.locationEditText);
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mEventsDatabaseReference = mFirebaseDatabase.getReference().child("Events");
+
+        mCreate = (Button) findViewById(R.id.create);
+        mCreate.setOnClickListener(new View.OnClickListener() {
 
 
-        textView = (TextView)findViewById(R.id.txtitem);
-        String Tempholder = getIntent().getStringExtra("Listviewclickvalue" );
-        textView.setText(Tempholder);
-
-        mBuyTicketButton = (Button) findViewById(R.id.buyTicketButton);
-        mBuyTicketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(detailsactivity.this, TicketActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
+
             }
         });
     }
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }
+
