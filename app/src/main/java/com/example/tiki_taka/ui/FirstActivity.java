@@ -21,6 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView mSearchEventButton;
@@ -35,6 +38,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     private ImageView hapakenya;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private TextView mSaved;
 
 
 
@@ -48,6 +52,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         Typeface Windsong = Typeface.createFromAsset(getAssets(), "fonts/UnderType.ttf");
         textView4 = findViewById(R.id.textView4);
         textView4.setTypeface(Windsong);
+
+        mSaved = findViewById(R.id.save);
+        mSaved.setOnClickListener(this);
+
 
         eventbrite = findViewById(R.id.eventbrite);
         eventbrite.setOnClickListener(this);
@@ -183,6 +191,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://hapakenya.com/events/"));
             startActivity(webIntent);
+        }
+        if (v == mSaved) {
+            Intent intent = new Intent(FirstActivity.this, SavedEventListActivity.class);
+            startActivity(intent);
         }
     }
 

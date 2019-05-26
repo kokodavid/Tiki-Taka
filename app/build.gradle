@@ -55,6 +55,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'jp.wasabeef:recyclerview-animators:2.2.3'
     implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
 
 
     implementation 'org.parceler:parceler-api:1.1.12'
