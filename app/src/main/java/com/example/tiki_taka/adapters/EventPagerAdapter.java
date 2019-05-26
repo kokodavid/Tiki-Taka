@@ -5,6 +5,7 @@ package com.example.tiki_taka.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.Menu;
 
 import com.example.tiki_taka.ui.Event;
 import com.example.tiki_taka.ui.EventDetailFragment;
@@ -19,6 +20,7 @@ public class EventPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         mEvents = events;
     }
+
 
     @Override
     public Fragment getItem(int position) {

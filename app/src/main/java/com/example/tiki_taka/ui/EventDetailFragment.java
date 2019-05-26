@@ -4,12 +4,16 @@ package com.example.tiki_taka.ui;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tiki_taka.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -20,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EventDetailFragment extends Fragment {
+public class EventDetailFragment extends Fragment implements View.OnClickListener {
 
 
 
@@ -30,6 +34,7 @@ public class EventDetailFragment extends Fragment {
     @BindView(R.id.eventDescriptionTextView) TextView mDescriptionView;
     @BindView(R.id.eventDateTextView) TextView mDateView;
     @BindView(R.id.eventDate2TextView) TextView mDate2View;
+    @BindView(R.id.save) ImageView mSave;
 
     private Event mEvent;
 
@@ -40,6 +45,9 @@ public class EventDetailFragment extends Fragment {
         eventDetailFragment.setArguments(args);
         return eventDetailFragment;
     }
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +67,20 @@ public class EventDetailFragment extends Fragment {
         mDateView.setText(mEvent.getStart());
         mDate2View.setText(mEvent.getEnd());
 
+        mSave.setOnClickListener(this);
+
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mSave) {
+            DatabaseReference eventRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_EVENTS);
+            eventRef.push().setValue(mEvent);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
     }
 }
