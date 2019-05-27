@@ -37,7 +37,10 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
         TextView descriptionTextView = (TextView) mView.findViewById(R.id.eventDescriptionTextView);
         TextView startTextView = (TextView) mView.findViewById(R.id.eventDateTextView);
         TextView endTextView = (TextView) mView.findViewById(R.id.eventDate2TextView);
-
+        nameTextView.setText(events.getName());
+        descriptionTextView.setText(events.getDescription());
+        startTextView.setText(events.getStart());
+        endTextView.setText(events.getEnd());
 
 
     }
@@ -58,7 +61,7 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
 
                 Intent intent = new Intent(mContext, EventDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("restaurants", Parcels.wrap(events));
+                intent.putExtra("events", Parcels.wrap(events));
 
                 mContext.startActivity(intent);
             }

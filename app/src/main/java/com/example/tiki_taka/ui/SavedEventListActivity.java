@@ -21,15 +21,17 @@ import butterknife.ButterKnife;
 
 public class SavedEventListActivity extends AppCompatActivity {
 
-    private DatabaseReference mRestaurantReference;
+    private DatabaseReference mEventReference;
     private FirebaseRecyclerAdapter<Event, FirebaseEventViewHolder> mFirebaseAdapter;
 
 
-/*
-    @BindView(R.id.recycler) RecyclerView RecyclerView;
-*/
 
+    @BindView(R.id.recycler) RecyclerView RecyclerView;
+
+
+/*
     RecyclerView RecyclerView;
+*/
 
 
     @Override
@@ -40,7 +42,7 @@ public class SavedEventListActivity extends AppCompatActivity {
 
         RecyclerView = findViewById(R.id.recycler);
 
-        mRestaurantReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS);
+        mEventReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS);
         setUpFirebaseAdapter();
 
     }
@@ -48,7 +50,7 @@ public class SavedEventListActivity extends AppCompatActivity {
     private void setUpFirebaseAdapter() {
         FirebaseRecyclerOptions<Event> options =
                 new FirebaseRecyclerOptions.Builder<Event>()
-                        .setQuery(mRestaurantReference, Event.class)
+                        .setQuery(mEventReference, Event.class)
                         .build();
 
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Event, FirebaseEventViewHolder>(options) {
