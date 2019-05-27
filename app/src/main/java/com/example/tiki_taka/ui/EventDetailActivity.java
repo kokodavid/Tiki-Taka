@@ -29,7 +29,7 @@ public class EventDetailActivity extends AppCompatActivity {
 
 
         //from Restaurant list adapter
-        mEvents = Parcels.unwrap(getIntent().getParcelableExtra("event"));
+        mEvents = Parcels.unwrap(getIntent().getParcelableExtra("events"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterViewPager = new EventPagerAdapter(getSupportFragmentManager(), mEvents);
