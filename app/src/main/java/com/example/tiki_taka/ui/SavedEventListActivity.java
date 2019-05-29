@@ -62,6 +62,7 @@ public class SavedEventListActivity extends AppCompatActivity {
             @NonNull
             @Override
             public FirebaseEventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item, parent, false);
                 return new FirebaseEventViewHolder(view);
             }
