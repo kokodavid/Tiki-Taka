@@ -90,7 +90,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + "user");
+                    getSupportActionBar().setTitle( user.getDisplayName()+"Welcome to TikiTaka"  );
                 } else {
 
                 }            }
