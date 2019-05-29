@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tiki_taka.R;
@@ -21,6 +22,7 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public ImageView mImageView;
 
     View mView;
     Context mContext;
@@ -33,6 +35,7 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
     }
 
     public void bindEvents(Event events) {
+        mImageView = (ImageView) mView.findViewById(R.id.eventImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.eventNameTextView);
         TextView descriptionTextView = (TextView) mView.findViewById(R.id.eventDescriptionTextView);
         TextView startTextView = (TextView) mView.findViewById(R.id.eventDateTextView);
