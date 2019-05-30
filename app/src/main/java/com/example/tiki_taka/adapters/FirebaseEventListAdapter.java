@@ -21,7 +21,6 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
 
-
     public FirebaseEventListAdapter(FirebaseRecyclerOptions<Event> options,
                                     DatabaseReference ref,
                                     OnStartDragListener onStartDragListener,
@@ -32,7 +31,19 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
         mContext = context;
     }
 
-
+    @Override
+    protected void onBindViewHolder(@NonNull final FirebaseEventViewHolder viewHolder, int position, @NonNull Event event) {
+        viewHolder.bindEvents(event);
+        viewHolder.mImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                    mOnStartDragListener.onStartDrag(viewHolder);
+                }
+                return false;
+            }
+        });
+    }
 
     @NonNull
     @Override
@@ -49,19 +60,5 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     @Override
     public void onItemDismiss(int position){
 
-    }
-
-    @Override
-    protected void onBindViewHolder(@NonNull FirebaseEventViewHolder viewHolder, int position, @NonNull Event model) {
-        viewHolder.bindEvents(model);
-//        viewHolder.mImageView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-//                    mOnStartDragListener.onStartDrag(viewHolder);
-//                }
-//                return false;
-//            }
-//        });
     }
 }

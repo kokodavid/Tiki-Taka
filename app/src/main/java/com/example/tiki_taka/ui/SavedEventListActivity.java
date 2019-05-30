@@ -103,6 +103,7 @@ public class SavedEventListActivity extends AppCompatActivity implements OnStart
             mFirebaseAdapter.stopListening();
         }
     }
+
     public void onStartDrag(RecyclerView.ViewHolder viewHolder){
         mItemTouchHelper.startDrag(viewHolder);
     }
