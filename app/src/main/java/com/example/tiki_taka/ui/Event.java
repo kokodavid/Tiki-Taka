@@ -4,52 +4,54 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Event {
-    private String Name;
-    private String Description;
-    private String Start;
-    private String End;
-    private String url;
+    String name;
+    String description;
+    String start;
+    String end;
+    String url;
 
     public Event() {}
 
     public Event(String name, String description, String start, String end, String url) {
-        Name = name;
-        Description = description;
-        Start = start;
-        End = end;
+        this.name = name;
+        this.description = description;
+        this.start = start;
+        this.end = end;
         this.url = url;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
+
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
+
     public String getStart() {
-        return Start;
+        return start;
     }
 
     public void setStart(String start) {
-        Start = start;
+        this.start = start;
     }
 
     public String getEnd() {
-        return End;
+        return end;
     }
 
     public void setEnd(String end) {
-        End = end;
+        this.end = end;
     }
 
     public String getUrl() {

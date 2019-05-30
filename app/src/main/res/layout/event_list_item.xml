@@ -14,8 +14,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@drawable/mm"
         android:layout_height="match_parent"
+        android:background="@color/colorAccent"
         android:padding="10dp">
 
         <TextView
