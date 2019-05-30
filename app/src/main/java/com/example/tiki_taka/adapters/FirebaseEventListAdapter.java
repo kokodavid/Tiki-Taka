@@ -54,14 +54,14 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     @Override
     protected void onBindViewHolder(@NonNull FirebaseEventViewHolder viewHolder, int position, @NonNull Event model) {
         viewHolder.bindEvents(model);
-        viewHolder.mImageView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                    mOnStartDragListener.onStartDrag(viewHolder);
-                }
-                return false;
-            }
-        });
+//        viewHolder.mImageView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+//                    mOnStartDragListener.onStartDrag(viewHolder);
+//                }
+//                return false;
+//            }
+//        });
     }
 }
