@@ -60,38 +60,33 @@ public class SavedEventListActivity extends AppCompatActivity implements OnStart
 
 
 
-    private void setUpFirebaseAdapter(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
+    private void setUpFirebaseAdapter() {
+        {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
 
-        mEventReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS).child(uid);
-        FirebaseRecyclerOptions<Event> options =
-                new FirebaseRecyclerOptions.Builder<Event>()
-                        .setQuery(mEventReference, Event.class)
-                        .build();
 
-        mFirebaseAdapter = new FirebaseEventListAdapter(options, mEventReference, this, this);
+            Query query = FirebaseDatabase.getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_EVENTS)
+                    .child(uid)
+                    .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
-        RecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        RecyclerView.setAdapter(mFirebaseAdapter);
-        RecyclerView.setHasFixedSize(true);
-        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(RecyclerView);
+            mEventReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS).child(uid);
+            FirebaseRecyclerOptions<Event> options =
+                    new FirebaseRecyclerOptions.Builder<Event>()
+                            .setQuery(mEventReference, Event.class)
+                            .build();
 
-   Query query = FirebaseDatabase.getInstance()
-                .getReference(Constants.FIREBASE_CHILD_EVENTS)
-                .child(uid)
-                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
-        FirebaseRecyclerOptions<Event> options1 =
-                new FirebaseRecyclerOptions.Builder<Event>()
-                        .setQuery(query, Event.class)
-                        .build();
+            mFirebaseAdapter = new FirebaseEventListAdapter(options, mEventReference, this, this);
 
-        mFirebaseAdapter = new FirebaseEventListAdapter(options1,
-                query, this, this);
-
+            RecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            RecyclerView.setAdapter(mFirebaseAdapter);
+            RecyclerView.setHasFixedSize(true);
+            ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+            mItemTouchHelper = new ItemTouchHelper(callback);
+            mItemTouchHelper.attachToRecyclerView(RecyclerView);
+        }
     }
 
     @Override
@@ -116,4 +111,3 @@ public class SavedEventListActivity extends AppCompatActivity implements OnStart
     protected void onDestroy() {
         super.onDestroy();
         mFirebaseAdapter.stopListening(); } }
-}

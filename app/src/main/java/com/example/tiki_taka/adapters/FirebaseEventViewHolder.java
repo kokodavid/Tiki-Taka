@@ -23,17 +23,19 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseEventViewHolder extends RecyclerView.ViewHolder  {
     public ImageView mImageView;
 
     View mView;
     Context mContext;
 
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     public FirebaseEventViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindEvents(Event events) {
@@ -50,36 +52,7 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
 
     }
 
-    @Override
-    public void onClick(View v) {
-        final ArrayList<Event> events = new ArrayList<>();
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS).child(uid);
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    events.add(snapshot.getValue(Event.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, EventDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("events", Parcels.wrap(events));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
 
 
         }
-}
+
