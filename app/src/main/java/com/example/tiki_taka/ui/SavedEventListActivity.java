@@ -111,4 +111,9 @@ public class SavedEventListActivity extends AppCompatActivity implements OnStart
     public void onStartDrag(RecyclerView.ViewHolder viewHolder){
         mItemTouchHelper.startDrag(viewHolder);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.stopListening(); } }
 }
