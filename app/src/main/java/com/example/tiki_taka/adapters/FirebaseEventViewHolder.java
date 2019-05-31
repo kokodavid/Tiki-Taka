@@ -3,6 +3,7 @@ package com.example.tiki_taka.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import com.example.tiki_taka.R;
 import com.example.tiki_taka.ui.Constants;
 import com.example.tiki_taka.ui.Event;
 import com.example.tiki_taka.ui.EventDetailActivity;
+import com.example.tiki_taka.util.ItemTouchHelperViewHolder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +25,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseEventViewHolder extends RecyclerView.ViewHolder  {
+public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     public ImageView mImageView;
 
     View mView;
@@ -53,6 +55,25 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder  {
     }
 
 
+    @Override
+    public void onItemSelected() {
+        Log.d("Animation", "onItemSelected");
+        itemView.animate()
+                .alpha(0.7f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
 
-        }
+    }
+
+    @Override
+    public void onItemClear() {
+        Log.d("Animation", "onItemClear");
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
+
+    }
+}
 
