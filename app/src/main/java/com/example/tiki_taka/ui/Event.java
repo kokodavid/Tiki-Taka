@@ -9,6 +9,10 @@ public class Event {
     String start;
     String end;
     String url;
+    String pushId;
+    String index;
+
+
 
     public Event() {}
 
@@ -18,6 +22,8 @@ public class Event {
         this.start = start;
         this.end = end;
         this.url = url;
+        this.index = "not_specified";
+
     }
 
     public String getName() {
@@ -60,5 +66,21 @@ public class Event {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }

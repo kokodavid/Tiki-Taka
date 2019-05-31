@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tiki_taka.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -76,10 +78,18 @@ public class EventDetailFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v == mSave) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference eventRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_EVENTS);
-            eventRef.push().setValue(mEvent);
+                    .getReference(Constants.FIREBASE_CHILD_EVENTS)
+                    .child(uid);
+
+            DatabaseReference pushRef = eventRef.push();
+            String pushId = pushRef.getKey();
+            mEvent.setPushId(pushId);
+            pushRef.setValue(mEvent);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

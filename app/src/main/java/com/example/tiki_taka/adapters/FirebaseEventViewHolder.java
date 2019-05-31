@@ -11,6 +11,8 @@ import com.example.tiki_taka.R;
 import com.example.tiki_taka.ui.Constants;
 import com.example.tiki_taka.ui.Event;
 import com.example.tiki_taka.ui.EventDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,7 +53,11 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
     @Override
     public void onClick(View v) {
         final ArrayList<Event> events = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_EVENTS).child(uid);
+
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
