@@ -79,8 +79,7 @@ public class SavedEventListActivity extends AppCompatActivity implements OnStart
         mItemTouchHelper = new ItemTouchHelper(callback);
         mItemTouchHelper.attachToRecyclerView(RecyclerView);
 
-
-     /*   Query query = FirebaseDatabase.getInstance()
+   Query query = FirebaseDatabase.getInstance()
                 .getReference(Constants.FIREBASE_CHILD_EVENTS)
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);
@@ -92,7 +91,7 @@ public class SavedEventListActivity extends AppCompatActivity implements OnStart
 
         mFirebaseAdapter = new FirebaseEventListAdapter(options1,
                 query, this, this);
-*/
+
     }
 
     @Override

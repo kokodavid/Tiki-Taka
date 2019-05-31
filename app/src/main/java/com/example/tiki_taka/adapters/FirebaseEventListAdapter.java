@@ -14,6 +14,7 @@ import com.example.tiki_taka.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 
 public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, FirebaseEventViewHolder> implements ItemTouchHelperAdapter {
 
@@ -22,7 +23,7 @@ public class FirebaseEventListAdapter extends FirebaseRecyclerAdapter<Event, Fir
     private Context mContext;
 
     public FirebaseEventListAdapter(FirebaseRecyclerOptions<Event> options,
-                                    DatabaseReference ref,
+                                    Query ref,
                                     OnStartDragListener onStartDragListener,
                                     Context context) {
         super(options);
