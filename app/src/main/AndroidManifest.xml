@@ -11,7 +11,7 @@
         android:roundIcon="@drawable/kud"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SavedEventListActivity"></activity>
+        <activity android:name=".ui.SavedEventListActivity" />
         <activity
             android:name=".ui.SignupActivity"
             android:theme="@style/NoActionBarTheme" />

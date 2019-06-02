@@ -73,5 +73,5 @@ public class FirebaseEventViewHolder extends RecyclerView.ViewHolder implements 
         set.start();
 
     }
-}
+    }
 
