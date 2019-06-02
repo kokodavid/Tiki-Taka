@@ -7,16 +7,12 @@
     tools:context=".ui.HomeActivity">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp" />
+    <fragment
+        android:id="@+id/fragmentRestaurantList"
+        android:name="com.example.tiki_taka.ui.EventListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_event_list" />
 
 
 
