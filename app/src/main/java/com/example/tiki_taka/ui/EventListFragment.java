@@ -64,17 +64,6 @@ public class EventListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-/*
-        mRecyclerView = findViewById(R.id.recycler);
-*/
-/*
-        mAppNameTextView = (TextView) findViewById(R.id.locationTextView);
-*/
-/*
-        Typeface Windsong = Typeface.createFromAsset(getAssets(), "fonts/Amatic-Bold.ttf");
-*/
-
-
         getEvents();
 
         // Instructs fragment to include menu options:
@@ -116,7 +105,6 @@ public class EventListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_event_list, container, false);
-        ButterKnife.bind(this, view);
 
 
         return view;

@@ -77,6 +77,15 @@ public class SavedEventsListFragment extends Fragment implements OnStartDragList
             RecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             RecyclerView.setAdapter(mFirebaseAdapter);
             RecyclerView.setHasFixedSize(true);
+
+            mFirebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    super.onItemRangeInserted(positionStart, itemCount);
+                    mFirebaseAdapter.notifyDataSetChanged();
+                }
+            });
+
             ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
             mItemTouchHelper = new ItemTouchHelper(callback);
             mItemTouchHelper.attachToRecyclerView(RecyclerView);
