@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.FirstActivity">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/plo" />
+
+       <!-- <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginRight="182dp"
+            android:layout_marginBottom="72dp"
+            android:src="@drawable/baseline_add_black_24"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            android:layout_gravity="end"
+            app:pressedTranslationZ="12dp"
+            android:layout_marginEnd="182dp" />
+-->
+      <!--  <Button
+            android:id="@+id/SearchEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#3096d2"
+            android:text="Available EVENTS"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginBottom="573dp" />-->
+
+        <ImageView
+            android:id="@+id/hapakenya"
+            android:layout_width="136dp"
+            android:layout_height="71dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginEnd="246dp"
+            android:layout_marginRight="246dp"
+            android:layout_marginBottom="451dp"
+            app:srcCompat="@drawable/hk" />
+
+
+        <ImageView
+            android:id="@+id/eventbrite"
+            android:layout_width="180dp"
+            android:layout_height="56dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="455dp"
+            app:srcCompat="@drawable/hko" />
+
+        <ImageView
+            android:id="@+id/hype"
+            android:layout_width="132dp"
+            android:layout_height="109dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="249dp"
+            android:layout_marginRight="249dp"
+            android:layout_marginBottom="306dp"
+            app:srcCompat="@drawable/hyp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="380dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="-43dp"
+            android:layout_marginRight="-43dp"
+            android:text="OUR EVENTS PARTNERS"
+            android:textColor="#3096d2"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/mosound"
+            android:layout_width="131dp"
+            android:layout_height="141dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:layout_marginBottom= "288dp"
+            app:srcCompat="@drawable/mos" />
+
+        <ImageView
+            android:id="@+id/nrg"
+            android:layout_width="146dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginEnd="246dp"
+            android:layout_marginRight="246dp"
+            android:layout_marginBottom="119dp"
+            app:srcCompat="@drawable/nrg" />
+
+        <ImageView
+            android:id="@+id/hbr"
+            android:layout_width="134dp"
+            android:layout_height="131dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:layout_marginBottom="105dp"
+            app:srcCompat="@drawable/kol" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:animateLayoutChanges="true"
+        android:background="#3096d2">
+
+        <TextView
+            android:id="@+id/SearchEvent"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
+            android:text="Events"
+           />
+
+        <TextView
+            android:id="@+id/create"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="270dp"
+            android:text="Create Event"
+            android:layout_marginTop="6dp"
+            />
+
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="6dp"
+            android:text="Saved Events" />
+
+
+
+
+    </android.support.design.widget.BottomNavigationView>
+    </RelativeLayout>
